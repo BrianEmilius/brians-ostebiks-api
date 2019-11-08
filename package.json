@@ -1,0 +1,29 @@
+{
+  "name": "cheese-api",
+  "version": "0.0.0",
+  "description": "RESTful Web-API med Firebase som datastorage",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index",
+    "start": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rts-cmk/cheese-api.git"
+  },
+  "author": "Brian Emilius <be@rts.dk>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rts-cmk/cheese-api/issues"
+  },
+  "homepage": "https://github.com/rts-cmk/cheese-api#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-winston": "^4.0.1",
+    "firebase": "^7.3.0",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
+}

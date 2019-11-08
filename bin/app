@@ -1,0 +1,20 @@
+#!/usr/bin/env node
+const express = require("express");
+const app = express();
+const router = express.Router();
+const { debugLogger, log } = require("../middleware/logger");
+const { join } = require("path");
+const { readdir } = require("fs");
+
+router.use(debugLogger);
+
+readdir(join(__dirname, "..", "routes"), function(err, files) {
+	if (err) return log.error(err.stack);
+	files.forEach(file => {
+		require(join(__dirname, "..", "routes", file))(router);
+	});
+});
+
+app.use(router);
+
+require("./server")(app);

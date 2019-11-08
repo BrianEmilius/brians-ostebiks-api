@@ -1,0 +1,11 @@
+#!/usr/bin/env node
+const { log } = require("../middleware/logger");
+module.exports = async function(app) {
+	try {
+		const server = await app.listen(3000);
+		log.info(`App is listneing on port ${server.address().port}`);
+	} catch (error) {
+		log.error(error.stack);
+		process.exit(1);
+	}
+};

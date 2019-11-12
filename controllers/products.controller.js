@@ -58,11 +58,13 @@ exports.updateProduct = async function(req, res) {
 	}
 };
 
-exports.deleteProduct = function(req, res) {
-	ProductRef.where("sku", "==", req.params.sku).get()
-		.then(docs => {
-			docs.forEach(doc => doc.ref.delete());
-		})
-		.catch(err => res.status(500).json({message: err}));
-	res.status(204).end();
+exports.deleteProduct = async function(req, res) {
+	try {
+		const docs = await ProductRef.where("sku", "==", req.params.sku).get();
+		docs.forEach(doc => doc.ref.delete());
+		res.status(204).end();
+	} catch (error) {
+		log.error(error.stack);
+		res.status(500).end();
+	}
 };

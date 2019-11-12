@@ -5,7 +5,9 @@ const router = express.Router();
 const { debugLogger, log } = require("../middleware/logger");
 const { join } = require("path");
 const { readdir } = require("fs");
+const formidable = require("express-formidable");
 
+router.use(formidable());
 router.use(debugLogger);
 
 readdir(join(__dirname, "..", "routes"), function(err, files) {

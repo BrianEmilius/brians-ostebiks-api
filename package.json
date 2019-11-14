@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/rts-cmk/cheese-api#readme",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-formidable": "^1.2.0",
     "express-winston": "^4.0.1",

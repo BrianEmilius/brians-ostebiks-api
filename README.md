@@ -15,3 +15,15 @@ I production
 ```
 npm start
 ```
+
+Du skal bruge en .env fil med følgende indhold:
+
+```
+apiKey = "",
+authDomain = "",
+databaseURL = "",
+projectId = "",
+storageBucket = "",
+messagingSenderId = "",
+appId = ""
+```

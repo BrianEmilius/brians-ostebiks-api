@@ -15,7 +15,7 @@ exports.getAllProducts = async function(req, res) {
 	try {
 		let docs;
 		req.query.category
-			? docs = await ProductRef.where("category", "==", req.query.category)
+			? docs = await ProductRef.where("category", "==", req.query.category).get()
 			: docs = await ProductRef.get();
 		const results = [];
 		docs.forEach(doc => results.push(doc.data()));
